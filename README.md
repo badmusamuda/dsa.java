@@ -5,10 +5,10 @@
   **![DSA.JAVA](https://work-ps.herokuapp.com)**;
 
 ### Content 
- * ![Stack](lang.java.dsa.stack)
+ * ![Stack](src.main.java.lang.java.dsa.stack.Stack)
 	**{@code push} and @{pop}**
 
- *![Biwise Operators](java.lang.prac)
+ *![Biwise Operators](src.main.java.java.lang.prac.Bitwise)
    <br/><li> <a href="https://amudabadmus.wordpress.com/2019/01/13/how-bitwise-operation-works-in-java/"> Bitwise paper</a></li>
   ```Java
 
@@ -33,12 +33,13 @@
     <li>\e = \x1B</li>
     <li>\a = \x07</li>
 
-  *![Implementation of](java.lang.prac)
-	**subList(List<String> list, int offset, int endPoint)**
-	**listReversal(final List<String> source)**
-	**stringReversal(final String source)**
-	**wordOccurence(final String text)**
-	**obtain(List<T> v, final String TYPE)**
-	**multiplicationTable(int n)**
+  *![Implementation of](src.main.java.java.lang.prac.Implementation.java)
+	<li>**subList(List<String> list, int offset, int endPoint)**
+	</li><li>**listReversal(final List<String> source)**
+	</li><li>**stringReversal(final String source)**
+	</li><li>**wordOccurence(final String text)**
+	</li><li>**obtain(List<T> v, final String TYPE)**
+	</li><li>**multiplicationTable(int n)**
+	</li>
 
    * ![Euclid algorithm](https://amudabadmus.wordpress.com/2019/04/08/implementation-real-life-application-of-euclid-algorithmpaper/)
