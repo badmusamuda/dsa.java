@@ -39,5 +39,15 @@
 	</li><li>** obtain(List<T> v, final String TYPE) **
 	</li><li>** multiplicationTable(int n) **
 	</li>
+	
+   
+ * [Implementation of urlConverterToHref & emailCreator](src/main/java/lang/java/prac/Implementation.java)
+  ```Java
+
+	public static void main(String...args){
+		String a = "http://WWW.work-as-app.NG";
+		System.out.println( urlConverterToHref(a) ); //<a href="http://www.work-as-app.ng">WORK-AS-APP</a> 
+	}
+  ```  	
 
    * [Euclid algorithm](https://amudabadmus.wordpress.com/2019/04/08/implementation-real-life-application-of-euclid-algorithmpaper/)
