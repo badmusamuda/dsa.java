@@ -22,8 +22,8 @@
 		}
   ``` 
   * Regex<br/>
-    <li>**(?i) -> Case insensitive**</li>
-    **Hexadecimal value of**
+    <li>*(?i) -> Case insensitive*</li>
+    *Hexadecimal value of*
     <li>\n = \0A</li>
     <li>\v = \0B</li>
     <li>\r = \0D</li>
@@ -32,12 +32,12 @@
     <li>\a = \x07</li>
 
   * [Implementation of](src/main/java/lang/java/prac/Implementation.java)
-	<li>** subList(List<String> list, int offset, int endPoint) **
-	</li><li>** listReversal(final List<String> source) **
-	</li><li>** stringReversal(final String source) **
-	</li><li>** wordOccurence(final String text) **
-	</li><li>** obtain(List<T> v, final String TYPE) **
-	</li><li>** multiplicationTable(int n) **
+	<li> subList(List<String> list, int offset, int endPoint)
+	</li><li> listReversal(final List<String> source)
+	</li><li> stringReversal(final String source)
+	</li><li> wordOccurence(final String text)
+	</li><li> obtain(List<T> v, final String TYPE)
+	</li><li> multiplicationTable(int n)
 	</li>
 	
    
