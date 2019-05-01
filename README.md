@@ -46,7 +46,8 @@
 
 	public static void main(String...args){
 		String a = "http://WWW.work-as-app.NG";
-		System.out.println( urlConverterToHref(a) ); //<a href="http://www.work-as-app.ng">WORK-AS-APP</a> 
+		System.out.println( urlConverterToHref(a) ); 
+		//<a href="http://www.work-as-app.ng">WORK-AS-APP</a> 
 	}
   ```  	
 
