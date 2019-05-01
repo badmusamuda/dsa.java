@@ -1,4 +1,4 @@
-package java.lang.prac;
+package lang.java.prac;
 
 import java.util.*;
 
@@ -283,6 +283,112 @@ public class Implementation{
 		return result;
 	}
 
+	/*Create new email for {@code input} using this approach
+	*<li>{@code inputs} is ";" seperated. 
+	* <ul>Example : "Amuda Adeolu Badmus","Amuda Badmus","Amuda Adeolu","Adeolu Badmus","Badmus Amuda Adeolu","Badmus Adeolu Amuda","Adeolu Badmus Amuda","Badmus Adeolu"</ul></li>
+	* <li>Names with middle name doesn't matters. Example : Amuda Adeolu Badmus</li>
+	*<li>No two email must exist for the same company</li>
+	* <p>Email generation pattern</p>
+	*<ul>For Amuda Adeolu Badmus, email = amuda.badmus@work-as.com<ul>
+	*<ul>For Amuda Badmus, email = amuda.badmus1@work-as.com</ul>
+	*/
+	public static Map<String,Integer> createNewEmail(final String inputs, final String companyName){
+
+		Map<String,Integer> output = new TreeMap<>();
+		String[] datas = inputs.split(";");
+	
+		int i = 0;
+		for(String x : datas){
+			String currEmail = emailCreator(x, companyName,0);
+
+			if( output.containsKey( emailPattern( currEmail) ) ){
+				//System.out.println("Email exist..."+currEmail+".......@"+i);
+				int index = output.get( emailPattern(currEmail) );
+				output.put( emailCreator(x, companyName, index + 1),index );
+			}
+			else			
+				output.put( emailCreator(x, companyName, 0),0 );
+		}
+		return output;
+	}
+
+	private static String emailPattern(final String email){
+		return email.contains("\\d{1}") ? emailWithDigit(email) : email;
+	}
+
+	private static String emailWithDigit(final String e){
+		String[] ne = e.split("\\d{1}");
+		return ne[0].split("\\d{1}")[0]+ne[1];
+	}
+
+	/*Create new email using htis approach
+	*
+	*<p>CONDITION #1</p>
+	*<ul>If name doesn't contains middle name
+	*Example : @param e = "Amuda Adeolu", @param c = "SiliconKernel"
+	*Email = adeolu.amuda@siliconkernel.com
+	*</ul>
+	*
+	*<p>CONDITION #2</p>
+	*<ul>If name contains middle name
+	*Example : @param e = "Amuda Adeolu Badmus", @param c = "SiliconKernel"
+	*Email = badmus.amuda@siliconkernel.com
+	*</ul>		
+	*/
+
+	private static String emailCreator(final String e, final String c, final int i){
+		String[] x = e.split(" ");
+		StringBuilder sb = new StringBuilder();
+		
+		if(x.length == 2){
+			sb.append(x[1]+".");
+			String y = i == 0 ? x[0] : x[0]+""+i;
+			sb.append(y);
+		}			
+		if(x.length == 3){
+			sb.append(x[2]+".");
+			String y = i == 0 ? x[0] : x[0]+""+i;
+			sb.append(y);
+		}
+		return sb.append("@"+c+".com").toString().toLowerCase();
+	}
+
+	/*Convert a url to equivalent href
+	*<p>Example {@code addr} = "https://WORK-as.com" or "http://www.work-AS.com"
+	*
+	*Expected output = <a href="https://work-as.com">WORK-AS</a>
+	*
+	*<p>HOW IT WORKS</p>
+	*/
+	public static String urlConverterToHref(final String addr){
+		
+		String[] outputs = new String[2];
+		if(addr.toLowerCase().contains("www."))
+			outputs[0] = addr.split("(?i)www.")[1].toUpperCase();
+		if(!addr.toLowerCase().contains("www."))
+			outputs[0] = addr.split("(?i)(https://|http://)")[1].toUpperCase();
+
+		outputs[1] = "<a href=\""+addr.toLowerCase()+"\">"+outputs[0].split("[.]{1}+(?i)(com|ng|uk|gov)")[0]+"</a>";
+		return outputs[1];
+	}
+
+	/*Append a {@code Regex} @param exp from an array to imporve readability
+	*
+	*<p>Example :  {@code String}[] e = {"^","(?i)(https://|http)",".*","[.]{1}.*$"}</p>
+	*The {@code String} equivalent will be "^(?i)(https://|http).*[.]{1}.*$"
+	*
+	*@param exp
+	*    The regex expression in array form to append 
+	*/
+
+	private static String regexAppender(final String... exp){
+		StringBuilder sb = new StringBuilder();
+		for(String e : exp)
+			sb.append(e);
+		return sb.toString();
+	}
+
+
 	/**Obtains the binary inversion of a negative or positive integers
 	*
 	*Example
@@ -295,6 +401,8 @@ public class Implementation{
 	*
 	*
 	*/
+
+	
 
 	public static void main(String...args){
 
